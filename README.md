@@ -32,7 +32,7 @@ git rebase main
 
 Exemplo de saída ao executar o rebase:
 
-```
+```console
 $ git rebase main
 First, rewinding head to replay your work on top of it...
 Applying: Adiciona estrutura básica da API de usuários
@@ -42,7 +42,7 @@ Applying: Adiciona validação de dados de entrada
 
 Se ocorrerem conflitos, o Git pausará o rebase e mostrará uma mensagem como:
 
-```
+```console
 $ git rebase main
 First, rewinding head to replay your work on top of it...
 Applying: Adiciona estrutura básica da API de usuários
@@ -86,7 +86,7 @@ Por exemplo, em um projeto React, você pode ter vários commits relacionados a 
 
 Quando você executa `git rebase -i HEAD~5`, o Git abrirá um editor com conteúdo semelhante a este:
 
-```
+```console
 pick abc1234 Adiciona estrutura inicial do componente de login
 pick def5678 Implementa validação de formulário
 pick ghi9101 Corrige bug na validação de email
@@ -118,7 +118,7 @@ pick mno3141 Ajusta estilos do botão de submit
 
 Você pode editar este arquivo para reorganizar seus commits. Por exemplo:
 
-```
+```console
 pick abc1234 Adiciona estrutura inicial do componente de login
 squash def5678 Implementa validação de formulário
 squash ghi9101 Corrige bug na validação de email
@@ -134,7 +134,7 @@ Neste exemplo:
 
 Após salvar e fechar o editor, o Git processará os commits conforme suas instruções e abrirá novos editores para as mensagens de commit que precisam ser editadas. Para o squash, você verá algo como:
 
-```
+```console
 # This is a combination of 3 commits.
 # This is the 1st commit message:
 
@@ -197,7 +197,7 @@ git cherry-pick abc1234
 
 Exemplo de saída do comando `git log` para identificar o commit:
 
-```
+```console
 $ git log origin/feature/outra-funcionalidade
 commit abc1234def5678abc1234def5678abc1234def5 (origin/feature/outra-funcionalidade)
 Author: Colega <colega@empresa.com>
@@ -214,7 +214,7 @@ Date:   Mon May 15 11:20:30 2025 -0300
 
 Exemplo de saída ao executar o cherry-pick:
 
-```
+```console
 $ git cherry-pick abc1234
 [feature/sua-feature abc1234] Implementa função de validação de JWT
  1 file changed, 25 insertions(+), 0 deletions(-)
@@ -259,14 +259,14 @@ git stash pop
 
 Exemplo de saída ao salvar um stash:
 
-```
+```console
 $ git stash save "Implementação parcial do sistema de notificações"
 Saved working directory and index state On feature/notificacoes: Implementação parcial do sistema de notificações
 ```
 
 Exemplo de saída do `git status` após o stash:
 
-```
+```console
 $ git status
 On branch feature/notificacoes
 nothing to commit, working tree clean
@@ -274,7 +274,7 @@ nothing to commit, working tree clean
 
 Exemplo de saída ao aplicar o stash com `git stash pop`:
 
-```
+```console
 $ git stash pop
 On branch feature/notificacoes
 Changes not staged for commit:
@@ -308,7 +308,7 @@ git stash branch feature/novos-endpoints stash@{1}
 
 Exemplo de saída do `git stash list`:
 
-```
+```console
 $ git stash list
 stash@{0}: On feature/dashboard: Correções de estilo no dashboard
 stash@{1}: On feature/produtos: Novos endpoints para API de produtos
@@ -317,7 +317,7 @@ stash@{2}: On feature/auth: Refatoração do componente de login
 
 Exemplo de saída ao aplicar um stash específico:
 
-```
+```console
 $ git stash apply stash@{1}
 On branch feature/dashboard
 Changes not staged for commit:
@@ -332,7 +332,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 Exemplo de saída ao criar uma branch a partir de um stash:
 
-```
+```console
 $ git stash branch feature/novos-endpoints stash@{1}
 Switched to a new branch 'feature/novos-endpoints'
 On branch feature/novos-endpoints
@@ -387,7 +387,7 @@ git commit -m "Merge main into feature/autenticacao"
 
 Exemplo de saída ao tentar fazer um merge com conflitos:
 
-```
+```console
 $ git merge main
 Auto-merging src/components/auth/Login.js
 CONFLICT (content): Merge conflict in src/components/auth/Login.js
@@ -396,7 +396,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 Exemplo de saída do `git status` durante um conflito:
 
-```
+```console
 $ git status
 On branch feature/autenticacao
 You have unmerged paths.
@@ -467,7 +467,7 @@ git rebase --abort
 
 Exemplo de saída ao iniciar um rebase com conflitos:
 
-```
+```console
 $ git rebase main
 First, rewinding head to replay your work on top of it...
 Applying: Implementa sistema de pagamentos
@@ -487,7 +487,7 @@ To check out the original branch and stop rebasing, run "git rebase --abort".
 
 Exemplo de saída ao continuar o rebase após resolver conflitos:
 
-```
+```console
 $ git add src/services/payment.service.js
 $ git rebase --continue
 Applying: Implementa sistema de pagamentos
@@ -511,7 +511,7 @@ git mergetool
 
 Exemplo de saída ao executar o mergetool:
 
-```
+```console
 $ git mergetool
 Merging:
 src/components/auth/Login.js
@@ -548,7 +548,7 @@ git rebase --abort
 
 Exemplo de saída ao abortar um merge:
 
-```
+```console
 $ git merge --abort
 $ git status
 On branch feature/autenticacao
@@ -557,7 +557,7 @@ nothing to commit, working tree clean
 
 Exemplo de saída ao abortar um rebase:
 
-```
+```console
 $ git rebase --abort
 $ git status
 On branch feature/pagamentos
@@ -593,7 +593,7 @@ git diff --theirs -- caminho/para/arquivo
 
 Exemplo de saída do `git diff` durante um conflito:
 
-```
+```diff
 $ git diff -- src/components/auth/Login.js
 diff --cc src/components/auth/Login.js
 index abc1234,def5678..0000000
@@ -661,7 +661,7 @@ git push all main
 
 Exemplo de saída ao listar os remotes configurados:
 
-```
+```console
 $ git remote -v
 all     git@github.com:empresa/projeto.git (fetch)
 all     git@github.com:empresa/projeto.git (push)
@@ -674,7 +674,7 @@ origin  git@github.com:empresa/projeto.git (push)
 
 Exemplo de saída ao fazer push para múltiplos remotes:
 
-```
+```console
 $ git push all main
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
@@ -722,7 +722,7 @@ git push origin main
 
 Exemplo de saída ao adicionar e verificar o remote upstream:
 
-```
+```console
 $ git remote add upstream git@github.com:projeto-original/projeto-open-source.git
 $ git remote -v
 origin  git@github.com:seu-usuario/projeto-open-source.git (fetch)
@@ -733,7 +733,7 @@ upstream        git@github.com:projeto-original/projeto-open-source.git (push)
 
 Exemplo de saída ao atualizar seu fork com as mudanças do upstream:
 
-```
+```console
 $ git fetch upstream
 remote: Enumerating objects: 75, done.
 remote: Counting objects: 100% (75/75), done.
@@ -781,7 +781,7 @@ git push production main
 
 Exemplo de saída ao configurar e listar múltiplos remotes para diferentes ambientes:
 
-```
+```console
 $ git remote add dev git@github.com:empresa/projeto-dev.git
 $ git remote add staging git@github.com:empresa/projeto-staging.git
 $ git remote add production git@github.com:empresa/projeto-prod.git
@@ -828,13 +828,13 @@ git push origin v1.0.0
 
 Exemplo de saída ao criar uma tag anotada:
 
-```
+```console
 $ git tag -a v1.0.0 -m "Versão 1.0.0 - Primeiro release estável"
 ```
 
 Exemplo de saída ao listar as tags:
 
-```
+```console
 $ git tag
 v0.9.0
 v1.0.0
@@ -842,7 +842,7 @@ v1.0.0
 
 Exemplo de saída ao enviar a tag para o repositório remoto:
 
-```
+```console
 $ git push origin v1.0.0
 Enumerating objects: 1, done.
 Counting objects: 100% (1/1), done.
@@ -871,7 +871,7 @@ git push origin v0.9.0
 
 Exemplo de saída do `git log --oneline`:
 
-```
+```console
 $ git log --oneline
 def5678 (HEAD -> main, tag: v1.0.0) Adiciona documentação completa
 abc1234 Implementa todas as funcionalidades principais
@@ -882,7 +882,7 @@ fedcba9 Configuração inicial do projeto
 
 Exemplo de saída ao criar uma tag para um commit anterior:
 
-```
+```console
 $ git tag -a v0.9.0 abc1234 -m "Versão beta que foi enviada para testes"
 ```
 
@@ -904,7 +904,7 @@ git checkout -b hotfix/v1.2.1
 
 Exemplo de saída ao fazer checkout em uma tag:
 
-```
+```console
 $ git checkout v1.2.0
 Note: switching to 'v1.2.0'.
 
@@ -928,7 +928,7 @@ HEAD is now at abc1234 Implementa todas as funcionalidades para a versão 1.2.0
 
 Exemplo de saída ao criar uma branch a partir de uma tag:
 
-```
+```console
 $ git checkout -b hotfix/v1.2.1
 Switched to a new branch 'hotfix/v1.2.1'
 ```
@@ -970,7 +970,7 @@ git stash pop
 
 Exemplo de saída ao verificar quanto sua branch está atrás da main:
 
-```
+```console
 $ git log --oneline feature/sua-feature..origin/main
 def5678 Atualiza dependências de segurança
 abc1234 Implementa novo sistema de autenticação
@@ -1004,7 +1004,7 @@ git merge refactor/reorganizacao-estrutura
 
 Exemplo de saída ao mover arquivos com `git mv`:
 
-```
+```console
 $ git mv src/components/auth/Login.js src/features/authentication/LoginForm.js
 $ git mv src/utils/helpers.js src/common/utilities.js
 $ git status
