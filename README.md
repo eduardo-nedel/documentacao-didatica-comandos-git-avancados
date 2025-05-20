@@ -11,7 +11,7 @@ O rebase é uma das ferramentas mais poderosas do Git, permitindo reescrever o h
 - `git rebase -i <commit>` - Modo interativo, permite editar, combinar, reordenar ou remover commits
 - `git rebase --continue` - Continua o rebase após resolver conflitos
 - `git rebase --abort` - Cancela o rebase e retorna ao estado anterior
-- `git rebase --skip` - Pula o commit atual durante o rebase
+- `git rebase --skip` - Pula o commit atual durante o rebase (não é boa prática)
 
 Para mais opções, consulte a [documentação oficial do git rebase](https://git-scm.com/docs/git-rebase).
 
@@ -28,6 +28,10 @@ git pull origin main
 # Volte para sua branch de feature e faça o rebase
 git checkout feature/nova-api-usuarios
 git rebase main
+```
+
+```
+git rebase origin/main
 ```
 
 Exemplo de saída ao executar o rebase:
